@@ -1,0 +1,8 @@
+
+
+# MAE
+# RMSE
+# MSPE
+# MSAE
+# RSQUARE
+# ADJUSTED R SQUARE
