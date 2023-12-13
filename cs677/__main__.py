@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov 10 23:35:43 2023
+Created on Fri Dec 14 18:00:00 2023
 
-@author: ca
+@author: Christopher Agostini
 """
 from cs677 import config as cfg
 from pandas import read_pickle
