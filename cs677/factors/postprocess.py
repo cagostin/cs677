@@ -1,7 +1,9 @@
 import sys
 import logging
+import os
 import re
 import cs677.config as cfg
+from cs677.items import preprocess
 from pandas import read_pickle, DataFrame, concat, DateOffset
 from numpy import datetime64, array, zeros, apply_along_axis
 
@@ -70,11 +72,12 @@ def row_items_costs(item, cost):
 def main():
 
     logging.basicConfig(level=logging.INFO)
-
     cfg.df_main = DataFrame(columns=cfg.MAIN_COLS)
 
     # modify items df
 
+    if not os.path.isfile(cfg.ITEMS_FINAL_PICKLE_PATH):
+        preprocess.main()
     with open(cfg.ITEMS_FINAL_PICKLE_PATH, 'rb') as f:
         items = read_pickle(f)
     items.rename_axis('Date', inplace=True)

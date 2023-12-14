@@ -5,42 +5,18 @@ Created on Fri Dec 14 18:00:00 2023
 
 @author: Christopher Agostini
 """
-from cs677 import config as cfg
-from pandas import read_pickle
+import sys
+import cs677.config as cfg
+from cs677.results import analysis
 
 
 def main():
 
-    # items
-        # s3csv
-        # cases
-        # items
+    analysis.main()
 
-    # features
-        # cost
-        # holiday
-        # lag
-        # predictor
-        # volume
-        # weather
-
-    # model (regression)
-        # linear
-        # polynomial
-        # svm
-        # random forest
-
-    # metrics (regression)
-        # perf
-        # error
-
-    # main
-        # predict next tow weeks of sales....
-            # predict on three different types of events: high, mid, low vol
-
-    pass
+    return 0
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
 
