@@ -7,9 +7,11 @@ def main():
 
     cfg.items_csv = read_csv(cfg.ITEMS_CSV_PATH, low_memory=False)
     cfg.items_csv.drop(cfg.ITEMS_CSV_COLS_DROP, axis=1, inplace=True)
-    cfg.items_csv['Item Revenue'] = cfg.items_csv['Item Revenue'].fillna(0.0)
+    cfg.items_csv['Item Revenue'] = cfg.items_csv['Item Revenue'].\
+        fillna(0.0).astype('int64')
+    cfg.items_csv['Item Revenue'] = cfg.items_csv['Item Revenue']
     cfg.items_csv['Modifiers Revenue'] = cfg.items_csv['Modifiers Revenue'].\
-        fillna(0.0)
+        fillna(0.0).astype('int64')
 
     cfg.items_csv_dt_col_i = cfg.items_csv.columns.get_loc('Line Item Date')
     cfg.items_csv_in_col_i = cfg.items_csv.columns.get_loc('Item Name')

@@ -1,6 +1,11 @@
 # CONSTANTS
 
 PROJECT_DIR = __file__.replace('/config/__init__.py', '')
+ITEMS_FINAL_PICKLE_PATH = f'{PROJECT_DIR}/items/items.pickle'
+ITEMS_FINAL_CSV_PATH = f'{PROJECT_DIR}/items/items.csv'
+MAIN_PICKLE_PATH = f'{PROJECT_DIR}/factors/main.pickle'
+MAIN_CSV_PATH = f'{PROJECT_DIR}/factors/main.csv'
+
 S3 = 's3://agsc-cs677-final-project/'
 ITEMS_CSV_PATH = f'{S3}items.csv'
 ITEMS_CSV_COLS = [
@@ -38,12 +43,31 @@ ITEMS_COLS = [
     'MonthDay',
     'WeekDay',
     'Hour',
-    'Name',
     'Item',
     'Cost'
 ]
-ITEMS_FINAL_PICKLE_PATH = f'{PROJECT_DIR}/items/items.pickle'
-ITEMS_FINAL_CSV_PATH = f'{PROJECT_DIR}/items/items.csv'
+MAIN_COLS = [
+    'D01',  # Sunday
+    'D02',  # Monday
+    'D03',  # ...
+    'D04',
+    'D05',
+    'D06',
+    'D07',   # Saturday
+    'S01',  # Sales lagged by 1 week
+    'S02',  # ... 2 weeks
+    'S03',
+    'S04',
+    'S05',   # ... 5 weeks
+    'M01',  # Sales of Brisket
+    'M02',  # ... Pork
+    'M03',  # ... Chicken
+    'M04',  # ... Ribs
+    'M05',  # ... Sausage
+    'M06',  # ... Turkey
+    'M07',  # ... Meat unknown
+    'O01'   # Other not meat sales
+]
 
 # GLOBAL VARS
 
@@ -71,4 +95,14 @@ item_re_pot_bomb = r'\APotato Bomb Bowl$'
 item_re_meet = r'Rib|Pulled|Sausage|Brisket|Chicken|Beef|Burnt|Moist'
 item_re_mac_pot_bomb = r'^Build a Bowl, Mac Bowl or Potato Bomb Bowl$'
 
-items_pickle = None
+df_main = None
+
+meat_re_m01 = r'.*Brisket.*|.*Burnt Ends.*'
+meat_re_m02 = r'.*Pork.*|.*Sloppy\sHog.*'
+meat_re_m03 = r'.*Chicken.*'
+meat_re_m04 = r'.*Ribs?.*'
+meat_re_m05 = r'.*Sausage.*'
+meat_re_m06 = r'.*Turkey.*'
+meat_re_m07 = r'^Side Stacker$|^Side Stack$|^Brisork$|' \
+              r'^Brisket trimmings and 2 who pork smoked shoulders$'
+

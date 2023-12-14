@@ -1,5 +1,5 @@
 """
-takes about 6 min to complete running
+takes about 2 min to complete running
 """
 import sys
 import re
@@ -8,7 +8,6 @@ from pandas import DataFrame, isna, notna, to_datetime, concat
 from cs677 import config as cfg
 from cs677.items import s3csv
 
-logging.basicConfig(level=logging.INFO)
 re_mod_name = re.compile(cfg.item_re_mod_name)
 re_mod_price = re.compile(cfg.item_re_mod_price)
 
@@ -30,7 +29,7 @@ def texas_meet_plate(item='UNKNOWN', price='UNKNOWN', mod_line=''):
         item = f'{re_mod_name.match(mod_line).groups()[0]}__combo'
     if re_mod_price.match(mod_line) is not None:
         price = re_mod_price.match(mod_line).groups()[0]
-    return item, price
+    return item, float(price)
 
 
 def texas_plate(item='UNKNOWN', price='UNKNOWN', mod_line=''):
@@ -50,7 +49,7 @@ def texas_plate(item='UNKNOWN', price='UNKNOWN', mod_line=''):
         raise 'Modifiers is an empy string'
     if re_mod_name.match(mod_line) is not None:
         item = f'{re_mod_name.match(mod_line).groups()[0]}__combo'
-    return item, price
+    return item, float(price)
 
 
 def pot_bomb(item='UNKNOWN', price='UNKNOWN', mod_line=''):
@@ -67,7 +66,7 @@ def pot_bomb(item='UNKNOWN', price='UNKNOWN', mod_line=''):
         raise 'Modifiers is an empy string'
     if re_mod_name.match(mod_line) is not None:
         item = f'{re_mod_name.match(mod_line).groups()[0]}__p_bomb'
-    return item, price
+    return item, float(price)
 
 
 def item_main(item='UNKNOWN', price='UNKNOWN'):
@@ -81,7 +80,7 @@ def item_main(item='UNKNOWN', price='UNKNOWN'):
     #   A little sauce (J0GT697DQBGX2) $0.00
     #       14.13
     #       0
-    return item, price
+    return item, float(price)
 
 
 def modifier_general(item='UNKNOWN', price='UNKNOWN', mod_line=''):
@@ -91,7 +90,7 @@ def modifier_general(item='UNKNOWN', price='UNKNOWN', mod_line=''):
         item = f'{re_mod_name.match(mod_line).groups()[0]}'
     if re_mod_price.match(mod_line) is not None:
         price = re_mod_price.match(mod_line).groups()[0]
-    return item, price
+    return item, float(price)
 
 
 def mp_bomb(item='UNKNOWN', price='UNKNOWN', mod_line=''):
@@ -101,7 +100,7 @@ def mp_bomb(item='UNKNOWN', price='UNKNOWN', mod_line=''):
         item = f'{re_mod_name.match(mod_line).groups()[0]}__mp_bomb'
     if re_mod_price.match(mod_line) is not None:
         price = re_mod_price.match(mod_line).groups()[0]
-    return item, price
+    return item, float(price)
 
 
 def item_case(item_name, item_price, modifier_lines, modifier_price):
@@ -221,6 +220,8 @@ def date_day_time(dt: str):
 
 
 def main():
+
+    logging.basicConfig(level=logging.INFO)
 
     s3csv.main()
     logging.info(f'items_csv summary: {cfg.items_csv.info()}')
