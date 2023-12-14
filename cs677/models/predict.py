@@ -1,7 +1,7 @@
 import sys
 import logging
-import cs677.config as cfg
-from cs677.models import regression
+import config as cfg
+from models import regression
 
 
 def main():

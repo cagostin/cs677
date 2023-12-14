@@ -2,8 +2,8 @@ import sys
 import logging
 import os
 import re
-import cs677.config as cfg
-from cs677.items import preprocess
+import config as cfg
+from items import preprocess
 from pandas import read_pickle, DataFrame, concat, DateOffset
 from numpy import datetime64, array, zeros, apply_along_axis
 

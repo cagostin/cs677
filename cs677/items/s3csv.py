@@ -1,6 +1,6 @@
 import sys
 from pandas import read_csv
-from cs677 import config as cfg
+import config as cfg
 
 
 def main():
