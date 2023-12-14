@@ -16,7 +16,7 @@ The following analysis and development was conducted on the original data:
 
 - Determine which columns were useful as features, predictors and not required
 - Design an intermediate data frame that combined items and modifiers
-- Identify and categorize items by product type (with a targeted approach on meets)
+- Identify and categorize items by product type (with a targeted approach on meats)
 - Organize original data set into 3 main cases and 7 special cases in comparison of the items, modifiers and prices
 - Partition 28 subsets of data from the original data set, categorized by case
 - Modularize Python code to enable sharing of all previously realized values as global variables throughout project
@@ -45,33 +45,24 @@ The final stage of generating the final data frame used for analysis required th
 
 The following features are used in the final data frame:
 
-| Feature | Data Type | Description                               |
-|---------|-----------|-------------------------------------------|
-| D01     | Binary    | Day of week is Sunday                     |
-| D02     | Binary    | Day of week is Monday                     |
-| D03     | Binary    | Day of week is Tuesday                    |
-| D04     | Binary    | Day of week is Wednesday                  |
-| D05     | Binary    | Day of week is Thursday                   |
-| D06     | Binary    | Day of week is Friday                     |
-| D07     | Binary    | Day of week is Saturday                   |
-| D08     | Binary    | If the day is a holiday                   |
-| T01     | Binary    | Time of day is morning hours              |
-| T02     | Binary    | Time of day is noon hours                 |
-| T03     | Binary    | Time of day is afternoon hours            |
-| T04     | Binary    | Time of day is later afternoon hours      |
-| V01     | Binary    | Expected sales is higher than normal      |
-| V02     | Binary    | Expected sales is less than normal        |
-| W01     | Float     | Weather forcast for precipitation         |
-| S07     | Float     | Total sales lag from the previous 7 days  |
-| S14     | Float     | Total sales lag from the previous 14 days |
-| S21     | Float     | Total sales lag from the previous 21 days |
-| S28     | Float     | Total sales lag from the previous 28 days |
-| S35     | Float     | Total sales lag from the previous 35 days |
-| S42     | Float     | Total sales lag from the previous 42 days |
+| Feature | Data Type | Description                   |
+|---------|-----------|-------------------------------|
+| D01     | Binary    | Day of week is Sunday         |
+| D02     | Binary    | Day of week is Monday         |
+| D03     | Binary    | Day of week is Tuesday        |
+| D04     | Binary    | Day of week is Wednesday      |
+| D05     | Binary    | Day of week is Thursday       |
+| D06     | Binary    | Day of week is Friday         |
+| D07     | Binary    | Day of week is Saturday       |
+| L01     | Float     | Total sales lagged by 1 week  |
+| L02     | Float     | Total sales lagged by 2 weeks |
+| L03     | Float     | Total sales lagged by 3 weeks |
+| L04     | Float     | Total sales lagged by 4 weeks |
+| L05     | Float     | Total sales lagged by 5 weeks |
 
 ### Predictors
 
-The following predictors are all 
+The following predictors are prices of the categories of meat and other items sold.
 
 | Predictor | Data Type | Description                              |
 |-----------|-----------|------------------------------------------|
@@ -81,8 +72,14 @@ The following predictors are all
 | M04       | Float     | Sales of ribs                            |
 | M05       | Float     | Sales of sausage                         |
 | M06       | Float     | Sales of turkey                          |
-| M07       | Float     | Sales of meet of unknown portion or type |
-| O01       | Float     | Sales of all other items not meet        |
+| M07       | Float     | Sales of meat of unknown portion or type |
+| O01       | Float     | Sales of all other items not meat        |
+
+### Preview
+
+A preivew of the final data set used in the machine learning is as follows:
+
+![img.png](dataset_main.png)
 
 ## Machine Learning Model
 
