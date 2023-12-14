@@ -6,8 +6,8 @@ Created on Fri Dec 14 18:00:00 2023
 @author: Christopher Agostini
 """
 import sys
-import cs677.config as cfg
-from cs677.results import analysis
+import config as cfg
+from results import analysis
 
 
 def main():

@@ -1,8 +1,8 @@
 import sys
 import logging
 import os
-import cs677.config as cfg
-from cs677.factors import postprocess
+import config as cfg
+from factors import postprocess
 from pandas import read_pickle
 from sklearn.model_selection import train_test_split
 

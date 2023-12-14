@@ -5,8 +5,8 @@ import sys
 import re
 import logging
 from pandas import DataFrame, isna, notna, to_datetime, concat
-from cs677 import config as cfg
-from cs677.items import s3csv
+import config as cfg
+from items import s3csv
 
 re_mod_name = re.compile(cfg.item_re_mod_name)
 re_mod_price = re.compile(cfg.item_re_mod_price)

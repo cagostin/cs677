@@ -1,7 +1,7 @@
 import sys
 import logging
-import cs677.config as cfg
-from cs677.models import predict
+import config as cfg
+from models import predict
 from sklearn.metrics import mean_squared_error, r2_score
 
 
