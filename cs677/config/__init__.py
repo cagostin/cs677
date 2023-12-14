@@ -68,7 +68,16 @@ MAIN_COLS = [
     'M07',  # ... Meat unknown
     'O01'   # Other not meat sales
 ]
-
+PREDICT_COLS = [
+    'Brisket',
+    'Pork',
+    'Chicken',
+    'Ribs',
+    'Sausage',
+    'Turkey',
+    'MeatOther',
+    'Other'
+]
 # GLOBAL VARS
 
 items_csv = None
@@ -106,3 +115,12 @@ meat_re_m06 = r'.*Turkey.*'
 meat_re_m07 = r'^Side Stacker$|^Side Stack$|^Brisork$|' \
               r'^Brisket trimmings and 2 who pork smoked shoulders$'
 
+x_train = None
+x_test = None
+y_train = None
+y_test = None
+
+model = None
+predict = None
+mse = None
+r2 = None

@@ -83,23 +83,24 @@ A preivew of the final data set used in the machine learning is as follows:
 
 ## Machine Learning Model
 
-A variety of regression types were used to build the multivariate multiple regression model using randomized 20% of the final data frame as training data. Each model was then tested using the later 80% of data. For each model, error diagnostics were performed and performance metrics were measured. The final model selected for real-world use is based on a balance between the least error and best performance. The results follow.
-
-### Model Coefficients
-
-Linear Regression
-Lasso regression
-Ridge Regression
-SVM Regression
-
-### Error Diagnostic
-
-
-### Performance Metrics
-
+Multi-Task Lasso regression from the Python Scikit-learn package is used to develop the machine learning model. 20% of the final data frame was selected randomly and used as training data. The model is then tested using the later 80% of data. The performance metric used to measure the accuracy of the model is the mean squared error and coefficient of determination (R^2).
 
 ### Results
 
+| Product Category | Mean Squared Error | Coefficient of Determination |
+|------------------|--------------------|------------------------------|
+| Brisket          | 166,249            | -0.239                       |
+| Pork             | 14,586             | 0.5388                       |
+| Chicken          | 3314               | -0.186                       |
+| Ribs             | 12,291             | 0.5235                       |
+| Sausage          | 1562               | 0.4588                       |
+| Turkey           | 1531               | -0.433                       |
+| MeatOther        | 492                | -0.2714                      |
+| Other            | 113088             | 0.0525                       |
+
+### Conclusion
+
+Future enhancements to this project will include adding additional features (e.g. weather forcast, expected volume, holidays, etc.) and conduct a more in depth review of which are best to use in the final model. Additionally, will use additional models to find which has the best performance metrics in addition to plots to spot outliers in the data and determine if transformations of data is required.
 
 ## Python
 
