@@ -54,11 +54,11 @@ The following features are used in the final data frame:
 | D05     | Binary    | Day of week is Thursday       |
 | D06     | Binary    | Day of week is Friday         |
 | D07     | Binary    | Day of week is Saturday       |
-| L01     | Float     | Total sales lagged by 1 week  |
-| L02     | Float     | Total sales lagged by 2 weeks |
-| L03     | Float     | Total sales lagged by 3 weeks |
-| L04     | Float     | Total sales lagged by 4 weeks |
-| L05     | Float     | Total sales lagged by 5 weeks |
+| S01     | Float     | Total sales lagged by 1 week  |
+| S02     | Float     | Total sales lagged by 2 weeks |
+| S03     | Float     | Total sales lagged by 3 weeks |
+| S04     | Float     | Total sales lagged by 4 weeks |
+| S05     | Float     | Total sales lagged by 5 weeks |
 
 ### Predictors
 
